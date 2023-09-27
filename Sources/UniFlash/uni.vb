@@ -3,8 +3,7 @@ Imports System.Text
 Imports UniFlash.PortIO
 
 Module uni
-    Private Const SPRD_DEFAULT_TIMEOUT As Integer = 200
-    Private boot_ver As Integer = 0
+    Private Const SPRD_DEFAULT_TIMEOUT As Integer = 2000
 
     Public MIDST_SIZE As Integer = 528
     Public logs_on As Boolean = False
@@ -415,16 +414,15 @@ Module uni
 
             If response = BSL.REP_VER Then
                 Dim version As String
-                RichLogs("Boot version" & vbTab & ": ", Color.Black, True, False)
 
-                If boot_ver > 0 Then
-                    version = Encoding.UTF8.GetString(TakeByte(Data, 3, Data.Length - 1014))
-                    boot_ver = 0
-                Else
+                If USBMethod = "Diag Channel" Then
                     version = Encoding.UTF8.GetString(TakeByte(Data, 3, Data.Length - 986))
+                Else
+                    version = Encoding.UTF8.GetString(TakeByte(Data, 3, Data.Length - 3))
                 End If
 
                 If version IsNot Nothing Then
+                    RichLogs("Boot version" & vbTab & ": ", Color.Black, True, False)
                     RichLogs(version, Color.DarkBlue, True, True)
                     Console.WriteLine("Boot version: " & version)
                 Else

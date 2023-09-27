@@ -20,3 +20,4 @@ D:\Project\UniFlash\Sources\obj\Debug\UniFlash.vbproj.CopyComplete
 D:\Project\UniFlash\Sources\obj\Debug\UniFlash.exe
 D:\Project\UniFlash\Sources\obj\Debug\UniFlash.xml
 D:\Project\UniFlash\Sources\obj\Debug\UniFlash.pdb
+D:\Project\UniFlash\Sources\obj\Debug\UniFlash.vbproj.AssemblyReference.cache
