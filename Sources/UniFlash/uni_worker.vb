@@ -299,6 +299,8 @@ Module uni_worker
 
         send_end()
 
+        RichLogs("OK", Color.Lime, True, True)
+
         If USBMethod = "Diag Channel" Then
             DiagClose()
             If File.Exists(Logs) Then
